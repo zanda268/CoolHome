@@ -362,6 +362,30 @@ namespace CoolHome
         static string GetFireId(GameObject fire)
         {
             ObjectGuid og = fire.GetComponent<ObjectGuid>();
+
+            if (og != null && og.PDID != null)
+            {
+                return og.PDID;
+            }
+
+            //SafehouseCustomization+ Patch
+            MelonLogger.Msg($"ObjectGUID or PDID is null. Attempting to patch.");
+            og = fire.GetOrAddComponent<ObjectGuid>();
+
+            //Generate seed from position
+            Vector3 v = fire.transform.position;
+            int seed = Mathf.CeilToInt(v.x * v.z + v.y * 10000f);
+
+            //Generate GUID from seed
+            var r = new System.Random(seed);
+            var guid = new byte[16];
+            r.NextBytes(guid);
+            Guid newGuid = new Guid(guid);
+
+			PdidTable.RuntimeAddOrReplace(og, newGuid.ToString());
+
+			MelonLogger.Msg($"Added GUID {og.PDID} to object {fire.name} at {fire.transform.position}");
+
             return og.PDID;
         }
 
