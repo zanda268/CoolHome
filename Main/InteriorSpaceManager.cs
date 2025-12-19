@@ -6,6 +6,10 @@ using System.Collections;
 using UnityEngine;
 using Il2CppTLD.Placement;
 using Il2CppTLD.Gear;
+using Il2CppTLD.PDID;
+using UnityEngine.SceneManagement;
+using SceneManager = Il2Cpp.SceneManager;
+using Il2CppVLB;
 
 namespace CoolHome
 {
@@ -213,8 +217,8 @@ namespace CoolHome
             Fire[] allFires = GameObject.FindObjectsOfType<Fire>();
             foreach (Fire f in allFires)
             {
-                if (f is null) continue;
-                firesPresent[GetFireId(f.gameObject)] = f;
+				if ((f is null) || (f.GetType() != typeof(GameObject))) continue;
+				firesPresent[GetFireId(f.gameObject)] = f;
             }
 
             Dictionary<string, FlareItem> flaresPresent = new Dictionary<string, FlareItem>();
@@ -361,7 +365,36 @@ namespace CoolHome
 
         static string GetFireId(GameObject fire)
         {
-            ObjectGuid og = fire.GetComponent<ObjectGuid>();
+            GameObject fireGO = fire.gameObject;
+
+            ObjectGuid og = fireGO.GetComponent<ObjectGuid>(); //TODO Error 1.1
+
+
+            if (og != null && og.PDID != null)
+            {
+                MelonLogger.Msg($"PDID already registered: {og.PDID}");
+                return og.PDID;
+            }
+
+            //SafehouseCustomization+ Patch
+            MelonLogger.Msg($"ObjectGUID or PDID is null. Attempting to patch.");
+            og = fireGO.GetOrAddComponent<ObjectGuid>();
+
+            //Generate seed from position
+            Vector3 v = fireGO.transform.position;
+            int seed = Mathf.CeilToInt(v.x * v.z + v.y * 10000f);
+
+            //Generate GUID from seed
+            var r = new System.Random(seed);
+            var guid = new byte[16];
+            r.NextBytes(guid);
+            Guid newGuid = new Guid(guid);
+
+			PdidTable.RuntimeAddOrReplace(og, newGuid.ToString());
+
+			MelonLogger.Msg($"Added GUID {og.PDID} to object {fireGO.name} at {fireGO.transform.position}");
+
+
             return og.PDID;
         }
 
@@ -527,7 +560,7 @@ namespace CoolHome
         public WarmingWalls? GetSpaceAssociatedWithFire(GameObject fire)
         {
             string id = GetFireId(fire);
-            if (RegisteredHeaters.ContainsKey(id)) return RegisteredHeaters[id];
+			if (RegisteredHeaters.ContainsKey(id)) return RegisteredHeaters[id];
             return null;
         }
 
@@ -548,7 +581,7 @@ namespace CoolHome
                 if (__instance.m_TempIncrease < 1) return;
 
                 WarmingWalls? ww = CoolHome.spaceManager.GetSpaceAssociatedWithFire(__instance.gameObject);
-                if (ww is null) return;
+				if (ww is null) return;
 
                 if (CoolHome.settings.UseTemperatureBasedFires)
                 {

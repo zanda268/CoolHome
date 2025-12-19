@@ -1,0 +1,8 @@
+{
+	"Name": "Dam",
+	"MaterialTag": "CONCRETE",
+	"SizeTag": "HUGE",
+	"WindowSquare": 15,
+	"AuroraPower": 12000,
+	"AuroraHeaterPower": 20000,
+}

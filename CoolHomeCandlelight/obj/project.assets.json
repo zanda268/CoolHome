@@ -8,23 +8,23 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Алексей\\.nuget\\packages\\": {},
-    "G:\\software\\installed\\VisualStudioSDK\\NuGetPackages": {}
+    "C:\\Users\\Zachary\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\projects\\tldmods\\CoolHome\\CoolHomeCandlelight\\CoolHomeCandlelight.csproj",
+      "projectUniqueName": "C:\\Users\\Zachary\\Documents\\!Coding Projects\\Visual Studio\\Long Dark\\CoolHome\\CoolHomeCandlelight\\CoolHomeCandlelight.csproj",
       "projectName": "CoolHomeCandlelight",
-      "projectPath": "G:\\projects\\tldmods\\CoolHome\\CoolHomeCandlelight\\CoolHomeCandlelight.csproj",
-      "packagesPath": "C:\\Users\\Алексей\\.nuget\\packages\\",
-      "outputPath": "G:\\projects\\tldmods\\CoolHome\\CoolHomeCandlelight\\obj\\",
+      "projectPath": "C:\\Users\\Zachary\\Documents\\!Coding Projects\\Visual Studio\\Long Dark\\CoolHome\\CoolHomeCandlelight\\CoolHomeCandlelight.csproj",
+      "packagesPath": "C:\\Users\\Zachary\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Zachary\\Documents\\!Coding Projects\\Visual Studio\\Long Dark\\CoolHome\\CoolHomeCandlelight\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "G:\\software\\installed\\VisualStudioSDK\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Алексей\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Zachary\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -45,7 +45,13 @@
         "warnAsError": [
           "NU1605"
         ]
-      }
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net6.0": {
@@ -61,12 +67,26 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.36, 6.0.36]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.36, 6.0.36]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[6.0.36, 6.0.36]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308\\RuntimeIdentifierGraph.json"
       }
     }
   }

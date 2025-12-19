@@ -1,0 +1,6 @@
+{
+	"HeatGainCoefficient": 1,
+	"HeatLossCoefficient": 1,
+	"UseTemperatureBasedFires": false,
+	"UseAuroraHeaters": false,
+}

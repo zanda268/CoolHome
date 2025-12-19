@@ -1,0 +1,8 @@
+{
+	"Name": "DamTransitionZone",
+	"MaterialTag": "CONCRETE",
+	"SizeTag": "HUGE",
+	"WindowSquare": 15,
+	"AuroraPower": 10000,
+	"AuroraHeaterPower": 20000,
+}

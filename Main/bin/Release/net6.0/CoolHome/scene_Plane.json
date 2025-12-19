@@ -1,0 +1,7 @@
+﻿{
+	"Name": "Plane",
+	"MaterialTag": "ALUMINIUM",
+	"SizeTag": "PLANE",
+	"WindowSquare": 1,
+	"InsulationRValue": 8.4
+}

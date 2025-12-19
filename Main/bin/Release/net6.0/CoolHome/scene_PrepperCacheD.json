@@ -1,0 +1,9 @@
+{
+	"Name": "PrepperCacheD",
+	"MaterialTag": "BRICK",
+	"SizeTag": "SMALL",
+	"WindowSquare": 0,
+	"DeltaTemperature": 2,
+	"AuroraPower": 250,
+	"AuroraHeaterPower": 1000,
+}

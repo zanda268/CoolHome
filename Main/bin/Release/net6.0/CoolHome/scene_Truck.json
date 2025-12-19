@@ -1,0 +1,7 @@
+﻿{
+	"Name": "Truck",
+	"MaterialTag": "STEEL",
+	"SizeTag": "TRUCK",
+	"WindowSquare": 2,
+	"InsulationRValue": 4.2
+}

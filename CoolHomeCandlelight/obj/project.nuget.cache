@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "tkGcLfuOoI41Ejeu5OQkm7A+kxrx9GHVb0ThUibjJZuL2tsADu40+DuS2DtHG2VMb6sgYOGWBSCKO8PWbTHX0w==",
+  "dgSpecHash": "0FsqMSBs9FU=",
   "success": true,
-  "projectFilePath": "G:\\projects\\tldmods\\CoolHome\\CoolHomeCandlelight\\CoolHomeCandlelight.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Zachary\\Documents\\!Coding Projects\\Visual Studio\\Long Dark\\CoolHome\\CoolHomeCandlelight\\CoolHomeCandlelight.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Zachary\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.36\\microsoft.windowsdesktop.app.ref.6.0.36.nupkg.sha512",
+    "C:\\Users\\Zachary\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.36\\microsoft.netcore.app.ref.6.0.36.nupkg.sha512",
+    "C:\\Users\\Zachary\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.36\\microsoft.aspnetcore.app.ref.6.0.36.nupkg.sha512"
+  ],
   "logs": []
 }

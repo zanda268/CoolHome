@@ -3,7 +3,7 @@
 
     <PropertyGroup>
         <!--This needs to be changed for the mod to compile.-->
-        <TheLongDarkPath>G:/Steam/steamapps/common/TheLongDark</TheLongDarkPath>
+        <TheLongDarkPath>C:\Program Files (x86)\Steam\steamapps\content\app_305620\depot_305621</TheLongDarkPath>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -23,7 +23,7 @@
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 
         <!--PDB files are mostly useless for modding since they can't be loaded.-->
-        <DebugType>none</DebugType>
+        <DebugType>embedded</DebugType>
     </PropertyGroup>
 
     <!--This tells the compiler where to look for assemblies. Don't change it.-->
@@ -36,7 +36,7 @@
         <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
         <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
         <OutputType>Library</OutputType>
-        <BaseOutputPath>G:\projects\tldmods\CoolHome\bin</BaseOutputPath>
+        <!--<BaseOutputPath>G:\projects\tldmods\CoolHome\bin</BaseOutputPath>-->
         <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
     </PropertyGroup>
 
@@ -122,4 +122,8 @@
           <HintPath>$(MelonLoaderPath)\Il2CppInterop.Runtime.dll</HintPath>
         </Reference>
     </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(TheLongDarkPath)/Mods" />
+  </Target>
 </Project>
