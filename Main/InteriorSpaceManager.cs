@@ -365,9 +365,7 @@ namespace CoolHome
 
         static string GetFireId(GameObject fire)
         {
-            GameObject fireGO = fire.gameObject;
-
-            ObjectGuid og = fireGO.GetComponent<ObjectGuid>();
+            ObjectGuid og = fire.GetComponent<ObjectGuid>();
 
 
             if (og != null && og.PDID != null)
@@ -378,10 +376,10 @@ namespace CoolHome
 
             //SafehouseCustomization+ Patch
             MelonLogger.Msg($"ObjectGUID or PDID is null. Attempting to patch.");
-            og = fireGO.GetOrAddComponent<ObjectGuid>();
+            og = fire.GetOrAddComponent<ObjectGuid>();
 
             //Generate seed from position
-            Vector3 v = fireGO.transform.position;
+            Vector3 v = fire.transform.position;
             int seed = Mathf.CeilToInt(v.x * v.z + v.y * 10000f);
 
             //Generate GUID from seed
@@ -392,7 +390,7 @@ namespace CoolHome
 
 			PdidTable.RuntimeAddOrReplace(og, newGuid.ToString());
 
-			//MelonLogger.Msg($"Added GUID {og.PDID} to object {fireGO.name} at {fireGO.transform.position}");
+			MelonLogger.Msg($"Added GUID {og.PDID} to object {fire.name} at {fire.transform.position}");
 
 
             return og.PDID;
