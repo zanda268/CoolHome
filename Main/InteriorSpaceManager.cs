@@ -367,12 +367,12 @@ namespace CoolHome
         {
             GameObject fireGO = fire.gameObject;
 
-            ObjectGuid og = fireGO.GetComponent<ObjectGuid>(); //TODO Error 1.1
+            ObjectGuid og = fireGO.GetComponent<ObjectGuid>();
 
 
             if (og != null && og.PDID != null)
             {
-                MelonLogger.Msg($"PDID already registered: {og.PDID}");
+                //MelonLogger.Msg($"PDID already registered: {og.PDID}");
                 return og.PDID;
             }
 
@@ -392,7 +392,7 @@ namespace CoolHome
 
 			PdidTable.RuntimeAddOrReplace(og, newGuid.ToString());
 
-			MelonLogger.Msg($"Added GUID {og.PDID} to object {fireGO.name} at {fireGO.transform.position}");
+			//MelonLogger.Msg($"Added GUID {og.PDID} to object {fireGO.name} at {fireGO.transform.position}");
 
 
             return og.PDID;
